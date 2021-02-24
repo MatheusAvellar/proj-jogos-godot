@@ -7,15 +7,32 @@ var dependencies: Array
 var progress = 0.0
 var last_progress = 0.0
 var num_workers = 0
+var workers_current: Array
 var is_available: bool
+var Scene2D: Node2D
 
 func make_asserts():
-	assert(workers_speed.size() == get_workers().size())
+	assert(workers_speed.size() == workers_current.size())
 	assert(get_construction_sprite() != null)
 
+func init_scene():
+	# Couldn't make $Scene2D nor $Node2D work
+	# using inheritance instead
+	Scene2D = get_parent().get_parent()
+
+func init_workers():
+	for child in get_children():
+		if (child is Worker):
+			workers_current.append(child)
+
+func init_variables():
+	init_scene()
+	init_workers()
+
 func _ready():
+	init_variables()
 	make_asserts()
-	for sprite in get_workers():
+	for sprite in workers_current:
 		(sprite as Worker).play()
 		(sprite as Worker).hide()
 
@@ -49,27 +66,23 @@ func get_construction_sprite() -> ConstructionSprite:
 			return x
 	return null
 
-func get_workers() -> Array:
-	var result = Array()
-	for x in get_children():
-		if (x is Worker):
-			result.append(x)
-	return result
-
 func on_finished():
+	Scene2D.num_workers_global -= num_workers
 	num_workers = 0
-	for worker in get_workers():
+	for worker in workers_current:
 		worker.hide()
 
 func is_finished() -> bool:
 	return progress >= 100
 
 func add_worker():
-	if (num_workers < get_workers().size()):
+	if (num_workers < workers_current.size() and Scene2D.num_workers_global < Scene2D.MAX_SIMULTANEOUS_WORKERS):
+		(workers_current[num_workers] as Worker).show()
 		num_workers += 1
-		(get_workers()[num_workers-1] as Worker).show()
+		Scene2D.num_workers_global += 1
 
 func remove_worker():
 	if (num_workers > 0):
+		Scene2D.num_workers_global -= 1
 		num_workers -= 1
-		(get_workers()[num_workers] as Worker).hide()
+		(workers_current[num_workers] as Worker).hide()

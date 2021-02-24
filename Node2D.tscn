@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Worker.gd" type="Script" id=1]
 [ext_resource path="res://Construction.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://ConstructionSprite.gd" type="Script" id=6]
 [ext_resource path="res://House.gd" type="Script" id=7]
 [ext_resource path="res://xp.jpg" type="Texture" id=8]
+[ext_resource path="res://Node2D.gd" type="Script" id=9]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -30,6 +31,7 @@ animations = [ {
 [node name="Node2D" type="Node2D"]
 position = Vector2( -91.1139, -139.849 )
 scale = Vector2( 1.55706, 1.55706 )
+script = ExtResource( 9 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_left = 41.6874

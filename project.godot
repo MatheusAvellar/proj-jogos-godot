@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://House.gd"
 }, {
+"base": "Node2D",
+"class": "Scene2D",
+"language": "GDScript",
+"path": "res://Node2D.gd"
+}, {
 "base": "AnimatedSprite",
 "class": "Worker",
 "language": "GDScript",
@@ -39,6 +44,7 @@ _global_script_class_icons={
 "ConstructionSprite": "",
 "ControlPanel": "",
 "House": "",
+"Scene2D": "",
 "Worker": "res://assets/icons/worker.png"
 }
 
@@ -50,4 +56,5 @@ config/icon="res://icon.png"
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 environment/default_environment="res://default_env.tres"
