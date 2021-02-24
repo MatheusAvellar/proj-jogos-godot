@@ -1,0 +1,69 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ControlPanel.gd" type="Script" id=1]
+
+[node name="Panel" type="Panel"]
+margin_top = -1.0
+margin_right = 389.0
+margin_bottom = 148.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonLess" type="Button" parent="."]
+margin_left = 231.5
+margin_top = 96.0
+margin_right = 251.5
+margin_bottom = 116.0
+text = "-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonMore" type="Button" parent="."]
+margin_left = 230.5
+margin_top = 35.5
+margin_right = 250.5
+margin_bottom = 55.5
+text = "+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 237.0
+margin_top = 67.0
+margin_right = 256.0
+margin_bottom = 81.0
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_left = 10.0
+margin_top = 35.0
+margin_right = 223.0
+margin_bottom = 120.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+margin_left = 106.0
+margin_top = 42.0
+margin_right = 106.0
+margin_bottom = 42.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_left = 79.614
+margin_top = 131.477
+margin_right = 152.614
+margin_bottom = 145.477
+__meta__ = {
+"_edit_use_anchors_": false
+}

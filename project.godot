@@ -1,0 +1,53 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Construction",
+"language": "GDScript",
+"path": "res://Construction.gd"
+}, {
+"base": "Sprite",
+"class": "ConstructionSprite",
+"language": "GDScript",
+"path": "res://ConstructionSprite.gd"
+}, {
+"base": "Panel",
+"class": "ControlPanel",
+"language": "GDScript",
+"path": "res://ControlPanel.gd"
+}, {
+"base": "Node2D",
+"class": "House",
+"language": "GDScript",
+"path": "res://House.gd"
+}, {
+"base": "AnimatedSprite",
+"class": "Worker",
+"language": "GDScript",
+"path": "res://Worker.gd"
+} ]
+_global_script_class_icons={
+"Construction": "res://assets/icons/construction.png",
+"ConstructionSprite": "",
+"ControlPanel": "",
+"House": "",
+"Worker": "res://assets/icons/worker.png"
+}
+
+[application]
+
+config/name="New Game Project"
+run/main_scene="res://Node2D.tscn"
+config/icon="res://icon.png"
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
