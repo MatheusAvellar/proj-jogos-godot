@@ -67,3 +67,12 @@ margin_bottom = 145.477
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 71.1855
+margin_top = 6.29961
+margin_right = 111.186
+margin_bottom = 20.2996
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,6 +1,8 @@
 extends Panel
 class_name ControlPanel
 
+export var text: String
+
 func make_asserts():
 	assert(get_progress_bar() != null)
 	
@@ -8,6 +10,7 @@ func make_asserts():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	make_asserts()
+	set_title()
 	$ButtonLess.connect("pressed", self, "_on_ButtonLess_pressed")
 	$ButtonMore.connect("pressed", self, "_on_ButtonMore_pressed")
 	var trw = $CenterContainer.rect_size.x
@@ -75,6 +78,9 @@ func _on_ButtonMore_pressed():
 	get_construction().add_worker()
 	update_text()
 	
+func set_title():
+	$Label2.text = text
+
 func update_text():
 	$Label.text = str(get_construction().num_workers)
 	

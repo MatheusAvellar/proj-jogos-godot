@@ -2,8 +2,8 @@ extends Node2D
 class_name Construction, "res://assets/icons/construction.png"
 
 export var workers_speed: PoolIntArray
-export var dependencies: Array
 
+var dependencies: Array
 var progress = 0.0
 var last_progress = 0.0
 var num_workers = 0
