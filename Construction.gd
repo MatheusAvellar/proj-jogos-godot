@@ -3,7 +3,8 @@ class_name Construction, "res://assets/icons/construction.png"
 
 export var workers_speed: PoolIntArray
 
-var dependencies: Array
+var dependenciesToBeConstructed: Array
+var dependenciesToBeVisible: Array
 var progress = 0.0
 var last_progress = 0.0
 var num_workers = 0
