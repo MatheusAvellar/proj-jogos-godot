@@ -38,12 +38,17 @@ func _ready():
 		(sprite as Worker).hide()
 
 func _process(delta):
+	update_score(delta)
 	last_progress = progress
 	if (num_workers != 0 and !is_finished()):
 		progress += delta*workers_speed[num_workers-1]
 	if (last_progress != progress):
 		update_frame()
-	
+
+func update_score(delta):
+	if (num_workers > 0):
+		Scene2D.score += delta
+
 func get_thumbnail():
 	return get_construction_sprite().texture
 	
@@ -67,11 +72,15 @@ func get_construction_sprite() -> ConstructionSprite:
 			return x
 	return null
 
+func set_construction_sprite_frame(frame):
+	get_construction_sprite().set_frame(frame)
+
 func on_finished():
 	Scene2D.num_workers_global -= num_workers
 	num_workers = 0
 	for worker in workers_current:
 		worker.hide()
+	Scene2D.update_phases_to_finish()
 
 func is_finished() -> bool:
 	return progress >= 100

@@ -9,6 +9,13 @@ func _ready():
 		if (child is Construction):
 			set_construction_visibility_and_availability(child)
 	
+func reset_constructions():
+	for child in get_children():
+		if (child is Construction):
+			child.progress = 0
+			child.set_construction_sprite_frame(0)
+	_ready()
+
 func set_construction_dependencies():
 	$BuildFloor1.dependenciesToBeVisible = []
 	$BuildFloor1.dependenciesToBeConstructed = []
@@ -21,17 +28,7 @@ func set_construction_dependencies():
 	
 	$PaintFloor2.dependenciesToBeVisible = [$BuildFloor2]
 	$PaintFloor2.dependenciesToBeConstructed = [$BuildFloor1]
-	
-	
-#func _process(delta):
-#	for child in get_children():
-#		if (child is Construction):
-#			if (dependencies_have_been_finished(child.dependenciesToBeConstructed)):
-#				child.is_available = true
-#			else:
-#				child.is_available = false
 
-#func construction_has_finished():
 func _process(delta):
 	for child in get_children():
 		if (child is Construction):
