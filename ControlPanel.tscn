@@ -60,19 +60,34 @@ __meta__ = {
 }
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-margin_left = 79.614
-margin_top = 131.477
-margin_right = 152.614
-margin_bottom = 145.477
+margin_left = 72.6844
+margin_top = 129.587
+margin_right = 145.684
+margin_bottom = 143.587
+rect_scale = Vector2( 1.17106, 1.17106 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 71.1855
+margin_left = 54.1855
 margin_top = 6.29961
-margin_right = 111.186
+margin_right = 94.186
 margin_bottom = 20.2996
+rect_scale = Vector2( 1.32083, 1.32083 )
+text = "Tarefa"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Finished" type="Label" parent="."]
+margin_left = 77.9384
+margin_top = 130.142
+margin_right = 144.938
+margin_bottom = 144.142
+rect_scale = Vector2( 1.12476, 1.12476 )
+custom_colors/font_color = Color( 0, 1, 0.223529, 1 )
+text = "Concluído!"
 __meta__ = {
 "_edit_use_anchors_": false
 }

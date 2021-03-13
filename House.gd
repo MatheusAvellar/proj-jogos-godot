@@ -20,8 +20,14 @@ func set_construction_dependencies():
 	$BuildFloor1.dependenciesToBeVisible = []
 	$BuildFloor1.dependenciesToBeConstructed = []
 	
+	$BuildDoor.dependenciesToBeVisible = [$BuildFloor1]
+	$BuildDoor.dependenciesToBeConstructed = [$BuildFloor1]
+	
 	$BuildFloor2.dependenciesToBeVisible = []
 	$BuildFloor2.dependenciesToBeConstructed = [$BuildFloor1]
+	
+	$BuildWindow.dependenciesToBeVisible = [$BuildFloor2]
+	$BuildWindow.dependenciesToBeConstructed = [$BuildFloor2]
 	
 	$PaintFloor1.dependenciesToBeVisible = [$BuildFloor1]
 	$PaintFloor1.dependenciesToBeConstructed = []

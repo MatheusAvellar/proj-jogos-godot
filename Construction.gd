@@ -1,7 +1,7 @@
 extends Node2D
 class_name Construction, "res://assets/icons/construction.png"
 
-export var workers_speed: PoolIntArray
+export var workers_speed: PoolRealArray
 
 var dependenciesToBeConstructed: Array
 var dependenciesToBeVisible: Array
@@ -38,16 +38,11 @@ func _ready():
 		(sprite as Worker).hide()
 
 func _process(delta):
-	update_score(delta)
 	last_progress = progress
 	if (num_workers != 0 and !is_finished()):
 		progress += delta*workers_speed[num_workers-1]
 	if (last_progress != progress):
 		update_frame()
-
-func update_score(delta):
-	if (num_workers > 0):
-		Scene2D.score += delta
 
 func get_thumbnail():
 	return get_construction_sprite().texture

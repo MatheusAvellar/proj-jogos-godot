@@ -11,6 +11,7 @@ func make_asserts():
 func _ready():
 	make_asserts()
 	set_title()
+	$Finished.hide()
 	$ButtonLess.connect("pressed", self, "_on_ButtonLess_pressed")
 	$ButtonMore.connect("pressed", self, "_on_ButtonMore_pressed")
 	var trw = $CenterContainer.rect_size.x
@@ -51,12 +52,16 @@ func update_buttons():
 		$ButtonMore.disabled = false	
 	
 func update_progress_bar():
-	var bar = get_progress_bar()
-	if (get_parent().progress > 0 and get_parent().progress < 100):
-		bar.show()
-		bar.value = get_parent().progress
+	if (get_parent().progress >= 100):
+		$Finished.show()
+		$ProgressBar.hide()
+	elif (get_parent().progress > 0 and get_parent().progress < 100):
+		$Finished.hide()
+		$ProgressBar.show()
+		$ProgressBar.value = get_parent().progress
 	else:
-		bar.hide()
+		$Finished.hide()
+		$ProgressBar.hide()
 
 func get_progress_bar() -> ProgressBar:
 	for x in get_children():
